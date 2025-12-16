@@ -1,0 +1,19 @@
+<%- include("partials/header"); -%>
+
+
+<h1>Edit</h1>
+<form action="/posts/<%= postId %>/edit" method="POST" class="animated-form">
+   <div class="form-group">
+    <label for="postTitle">Title</label>
+    <input class="form-control" type="text" name="postTitle" id="postTitle" value="<%= title %>" required>
+    <label for="postBody">Post</label>
+    <textarea class="form-control" name="postBody" id="postBody" rows="5" cols="30" required><%= content %></textarea>
+  </div>
+  <button class="btn btn-primary animated-button" type="submit">Update</button>
+</form>
+
+
+
+<%- include("partials/footer"); -%>
+
+

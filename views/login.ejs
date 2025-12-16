@@ -1,0 +1,42 @@
+<%- include("partials/header"); %>
+
+
+<h1>Login</h1>
+
+<form action="/login" method="post" class="animated-form">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      class="form-control"
+      type="email"
+      name="email"
+      id="email"
+      required
+    >
+
+    <label for="password">Password</label>
+    <input
+      class="form-control"
+      type="password"
+      name="password"
+      id="password"
+      required
+    >
+  </div>
+
+  <button class="btn btn-primary animated-button" type="submit">
+    Login
+  </button>
+</form>
+<br/>
+<p class="text-center">
+  Don’t have an account?
+  <a href="/signup">Sign up</a>
+</p>
+
+
+
+
+<%- include("partials/footer"); %>
+
+
