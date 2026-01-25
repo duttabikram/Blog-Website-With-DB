@@ -14,10 +14,10 @@
 
 <h3>Ask about this post 🤖</h3>
 
-<div id="chatbox" style="border:1px solid #ccc;height:250px;overflow:auto;"></div>
+<div id="chatbox"></div>
 
-<input id="msg" placeholder="Ask about this blog..." />
-<button onclick="sendMessage('<%= postId %>')">Ask</button>
+<input type="text" id="msg" placeholder="Ask from this post..." />
+<button onclick="sendMessage('<%= postId %>')">Send</button>
 
 
 <script src="/css/chat.js"></script>
