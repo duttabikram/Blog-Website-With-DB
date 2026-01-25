@@ -149,16 +149,16 @@ app.post("/chat/:postId", async (req, res) => {
 const prompt = `
 You are a blog assistant.
 
-You may:
+Allowed actions:
 - Summarize the blog
-- Explain it in simple words
-- Answer questions whose answers can be DERIVED from the blog
+- Explain the blog in your own words
+- Answer questions whose answers can be derived from the blog content
 
-You must:
-- Use ONLY the information from the blog content
-- NOT add external knowledge
+Rules:
+- Use ONLY the information present in the blog
+- Do NOT add outside knowledge
 
-If the question truly cannot be answered from the blog, say:
+If the user asks something that cannot be answered or derived from the blog, reply exactly:
 "This blog does not mention that."
 
 Blog Title:
@@ -170,7 +170,6 @@ ${blog.content.slice(0, 4000)}
 User Question:
 ${message}
 `;
-
 
   try {
     const completion = await openai.chat.completions.create({
