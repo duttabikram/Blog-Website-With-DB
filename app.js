@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-import OpenAI from "openai";
+const OpenAI = require("openai");
 const cookieParser = require("cookie-parser");
 const Post = require("./models/Post");
 const User = require("./models/User");
