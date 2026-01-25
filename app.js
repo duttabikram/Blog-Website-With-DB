@@ -173,7 +173,7 @@ ${message}
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "openai/gpt-oss-20b:free",
+      model: "openai/gpt-oss-120b:free",
       messages: [
         { role: "user", content: prompt }
       ],
