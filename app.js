@@ -146,21 +146,31 @@ app.post("/chat/:postId", async (req, res) => {
     return res.json({ reply: "Blog not found." });
   }
 
-  const prompt = `
+const prompt = `
 You are a blog assistant.
-Answer ONLY using the blog content below.
-If the answer is not present, say:
+
+You may:
+- Summarize the blog
+- Explain it in simple words
+- Answer questions whose answers can be DERIVED from the blog
+
+You must:
+- Use ONLY the information from the blog content
+- NOT add external knowledge
+
+If the question truly cannot be answered from the blog, say:
 "This blog does not mention that."
 
 Blog Title:
 ${blog.title}
 
 Blog Content:
-${blog.content}
+${blog.content.slice(0, 4000)}
 
 User Question:
 ${message}
 `;
+
 
   try {
     const completion = await openai.chat.completions.create({
