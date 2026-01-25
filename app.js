@@ -127,6 +127,43 @@ const requestedPostId = req.params.postId;
 
 });
 
+app.post("/chat/:postId", async (req, res) => {
+  const { message } = req.body;
+  const blog = await Blog.findById(req.params.postId);
+
+  if (!blog) {
+    return res.json({ reply: "Blog not found." });
+  }
+
+  const prompt = `
+You are a blog assistant.
+Answer ONLY using the blog content below.
+If the answer is not in the blog, say "This blog does not mention that."
+
+Blog Title: ${blog.title}
+
+Blog Content:
+${blog.content}
+
+User Question:
+${message}
+`;
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: prompt }]
+    });
+
+    res.json({
+      reply: response.choices[0].message.content
+    });
+  } catch (err) {
+    console.error(err);
+    res.json({ reply: "Chatbot error 😢" });
+  }
+});
+
 app.get("/posts/:postId/edit", authMiddleware, async function(req, res) {
   const requestedPostId = req.params.postId;
 
