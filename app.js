@@ -156,7 +156,7 @@ Blog Title:
 ${blog.title}
 
 Blog Content:
-${blog.content}
+${blog.content.slice(0, 4000)}
 
 User Question:
 ${message}
