@@ -175,9 +175,14 @@ ${message}
       reply: completion.choices[0].message.content
     });
   } catch (error) {
-    console.error(error);
-    res.json({ reply: "Chatbot error 😢" });
-  }
+  console.error("OpenRouter error:");
+  console.error(error.response?.data || error.message);
+
+  res.json({
+    reply: "AI service failed. Try again in a moment."
+  });
+}
+
 });
 
 app.get("/posts/:postId/edit", authMiddleware, async function(req, res) {
