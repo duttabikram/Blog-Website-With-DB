@@ -135,7 +135,6 @@ const requestedPostId = req.params.postId;
 });
 
 app.post("/chat/:postId", async (req, res) => {
-  const { message } = req.body;
   const blog = await Post.findById(req.params.postId);
 
   if (!blog) {
@@ -164,7 +163,7 @@ Blog Content:
 ${blog.content.slice(0, 4000)}
 
 User Question:
-${message}
+${req.body.message}
 `;
 
   try {
