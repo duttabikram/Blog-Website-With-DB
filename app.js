@@ -12,8 +12,6 @@ const cookieParser = require("cookie-parser");
 const Post = require("./models/Post");
 const User = require("./models/User");
 const authMiddleware = require("./middleware/auth");
-const path = require("path");
-
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -30,15 +28,11 @@ const aboutContent = "At this website, we believe in the power of storytelling. 
 const contactContent = "We love hearing from our readers! Whether you have a question, suggestion, or just want to say hello, feel free to reach out to us.";
 
 const app = express();
-const __dirname = path.resolve();
 
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.use((req, res, next) => {
   res.locals.isLoggedIn = !!req.cookies.token;
   next();
@@ -48,6 +42,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
 
 
 app.get("/signup", (req, res) => {
@@ -184,7 +179,6 @@ ${message}
     res.json({ reply: "Chatbot error 😢" });
   }
 });
-
 
 app.get("/posts/:postId/edit", authMiddleware, async function(req, res) {
   const requestedPostId = req.params.postId;
