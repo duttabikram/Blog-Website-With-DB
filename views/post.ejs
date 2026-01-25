@@ -1,7 +1,7 @@
 
 <%- include("partials/header"); -%>
 
-
+<div class="post-page" style="min-height: 100vh; padding-bottom: 200px;">    
     <h1><%=title%></h1>
     <p><%=content%></p>
     <a href="/posts/<%= postId %>/edit">Edit</a>
@@ -14,11 +14,19 @@
 
 <h3>Ask about this post 🤖</h3>
 
-<div id="chatbox"></div>
+<div id="chatbox" style="
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    "></div>
 
-<input type="text" id="msg" placeholder="Ask from this post..." />
-<button onclick="sendMessage('<%= postId %>')">Send</button>
-
+<div style="display: flex; gap: 8px;">
+<input type="text" id="msg" placeholder="Ask from this post..." style="flex: 1; padding: 8px;" />
+<button onclick="sendMessage('<%= postId %>')"  style="padding: 8px 12px;">Send</button>
+</div>
+</div>
 
 <script src="/css/chat.js"></script>
 
