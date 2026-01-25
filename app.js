@@ -9,9 +9,9 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import OpenAI from "openai";
 import cookieParser from "cookie-parser";
-const Post = require("./models/Post");
-const User = require("./models/User");
-const authMiddleware = require("./middleware/auth");
+import Post from "./models/Post.js";
+import User from "./models/User.js";
+import authMiddleware from "./middleware/auth.js";
 dotenv.config();
 
 const openai = new OpenAI({
