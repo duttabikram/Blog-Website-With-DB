@@ -10,6 +10,16 @@
   <button type="submit">Delete</button>
 </form>
 
+<hr>
+
+<h3>Ask about this blog 🤖</h3>
+
+<div id="chatbox"></div>
+
+<input type="text" id="msg" placeholder="Ask from this blog..." />
+<button onclick="sendMessage('<%= blog._id %>')">Send</button>
+
+<script src="/chat.js"></script>
 
 
 
