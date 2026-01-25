@@ -7,19 +7,15 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const OpenAI = require("openai");
+const OpenRouter = require("@openrouter/sdk");
 const cookieParser = require("cookie-parser");
 const Post = require("./models/Post");
 const User = require("./models/User");
 const authMiddleware = require("./middleware/auth");
 
-const openai = new OpenAI({
+
+const openrouter = new OpenRouter({
   apiKey: process.env.OPENAI_API_KEY,
-  baseURL: "https://openrouter.ai/api/v1",
-  defaultHeaders: {
-    "HTTP-Referer": "https://blog-website-with-db-8k30.onrender.com",
-    "X-Title": "Blog Aware Chatbot"
-  }
 });
 
 
@@ -172,17 +168,14 @@ ${message}
 `;
 
   try {
-    const completion = await openai.chat.completions.create({
-      model: "openai/gpt-oss-120b:free",
-      messages: [
-        { role: "user", content: prompt }
-      ],
-      temperature: 0.3
-    });
+    const completion = await openrouter.chat.send({
+    model: "openai/gpt-oss-120b:free",
+    messages: [{ role: "user", content: prompt }]
+  });
 
-    res.json({
-      reply: completion.choices[0].message.content
-    });
+  res.json({
+    reply: completion.choices[0].message.content
+  });
   } catch (error) {
   console.error("OpenRouter error:");
   console.error(error.response?.data || error.message);
