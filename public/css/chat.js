@@ -10,7 +10,7 @@ async function sendMessage(postId) {
   const res = await fetch(`/chat/${postId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: message })
+    body: JSON.stringify({ message: input.value })
   });
 
   const data = await res.json();
