@@ -12,6 +12,7 @@ const cookieParser = require("cookie-parser");
 const Post = require("./models/Post");
 const User = require("./models/User");
 const authMiddleware = require("./middleware/auth");
+const path = require("path");
 
 
 const openai = new OpenAI({
@@ -25,11 +26,15 @@ const aboutContent = "At this website, we believe in the power of storytelling. 
 const contactContent = "We love hearing from our readers! Whether you have a question, suggestion, or just want to say hello, feel free to reach out to us.";
 
 const app = express();
+const __dirname = path.resolve();
 
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   res.locals.isLoggedIn = !!req.cookies.token;
   next();
