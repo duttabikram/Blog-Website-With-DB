@@ -1,18 +1,18 @@
 //jshint esversion:6
 
-import express from "express";
-import bodyParser from "body-parser";
-import ejs from "ejs";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+const express = require("express");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+const mongoose = require('mongoose');
+require("dotenv").config();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 import OpenAI from "openai";
-import cookieParser from "cookie-parser";
-import Post from "./models/Post.js";
-import User from "./models/User.js";
-import authMiddleware from "./middleware/auth.js";
-dotenv.config();
+const cookieParser = require("cookie-parser");
+const Post = require("./models/Post");
+const User = require("./models/User");
+const authMiddleware = require("./middleware/auth");
+
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
