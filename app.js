@@ -15,8 +15,10 @@ const authMiddleware = require("./middleware/auth");
 
 const app = express();
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: "https://openrouter.ai/api/v1",
 });
+
 
 
 const homeStartingContent = "Discover a world of insights, stories, and experiences. Our blog is dedicated to sharing thought-provoking articles, personal reflections, and useful tips that inspire and inform. Whether you’re looking for lifestyle advice, travel tips, or the latest in technology, you’ll find something to spark your interest here.";
@@ -135,7 +137,7 @@ const requestedPostId = req.params.postId;
 
 app.post("/chat/:postId", async (req, res) => {
   const { message } = req.body;
-  const blog = await Blog.findById(req.params.postId);
+  const blog = await Post.findById(req.params.postId);
 
   if (!blog) {
     return res.json({ reply: "Blog not found." });
@@ -144,9 +146,11 @@ app.post("/chat/:postId", async (req, res) => {
   const prompt = `
 You are a blog assistant.
 Answer ONLY using the blog content below.
-If the answer is not in the blog, say "This blog does not mention that."
+If the answer is not present, say:
+"This blog does not mention that."
 
-Blog Title: ${blog.title}
+Blog Title:
+${blog.title}
 
 Blog Content:
 ${blog.content}
@@ -156,19 +160,23 @@ ${message}
 `;
 
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: prompt }]
+    const completion = await openai.chat.completions.create({
+      model: "openai/gpt-oss-20b:free",
+      messages: [
+        { role: "user", content: prompt }
+      ],
+      temperature: 0.3
     });
 
     res.json({
-      reply: response.choices[0].message.content
+      reply: completion.choices[0].message.content
     });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.json({ reply: "Chatbot error 😢" });
   }
 });
+
 
 app.get("/posts/:postId/edit", authMiddleware, async function(req, res) {
   const requestedPostId = req.params.postId;
