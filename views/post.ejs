@@ -14,13 +14,13 @@
 
 <h3>Ask about this post 🤖</h3>
 
-<div id="chatbox"></div>
+<div id="chatbox" style="border:1px solid #ccc;height:250px;overflow:auto;"></div>
 
-<input type="text" id="msg" placeholder="Ask from this post..." />
-<button onclick="sendMessage('<%= postId %>')">Send</button>
+<input id="msg" placeholder="Ask about this blog..." />
+<button onclick="sendMessage('<%= postId %>')">Ask</button>
 
-<script src="/chat.js" defer></script>
 
+<script src="/chat.js"></script>
 
 
 <%- include("partials/footer"); -%>
