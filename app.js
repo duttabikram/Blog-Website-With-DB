@@ -18,6 +18,10 @@ const path = require("path");
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
   baseURL: "https://openrouter.ai/api/v1",
+  defaultHeaders: {
+    "HTTP-Referer": "https://blog-website-with-db-8k30.onrender.com",
+    "X-Title": "Blog Aware Chatbot"
+  }
 });
 
 
