@@ -13,12 +13,10 @@ const Post = require("./models/Post");
 const User = require("./models/User");
 const authMiddleware = require("./middleware/auth");
 
-const app = express();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
   baseURL: "https://openrouter.ai/api/v1",
 });
-
 
 
 const homeStartingContent = "Discover a world of insights, stories, and experiences. Our blog is dedicated to sharing thought-provoking articles, personal reflections, and useful tips that inspire and inform. Whether you’re looking for lifestyle advice, travel tips, or the latest in technology, you’ll find something to spark your interest here.";
