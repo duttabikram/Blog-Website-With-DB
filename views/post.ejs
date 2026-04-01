@@ -4,11 +4,19 @@
 <div class="post-page" style="min-height: 100vh; padding-bottom: 200px;">    
     <h1><%=title%></h1>
     <p><%=content%></p>
-    <a href="/posts/<%= postId %>/edit">Edit</a>
+   <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
+      
+      <a href="/posts/<%= postId %>/edit" class="btn edit-btn">
+        Edit
+      </a>
 
-<form action="/posts/<%= postId %>/delete" method="POST" style="display:inline;">
-  <button type="submit" class="btn btn-primary animated-button">Delete</button>
-</form>
+      <form action="/posts/<%= postId %>/delete" method="POST" style="margin: 0;">
+        <button type="submit" class="btn btn-primary animated-button">
+          Delete
+        </button>
+      </form>
+
+    </div>
 
 <hr>
 
