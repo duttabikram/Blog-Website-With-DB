@@ -1,66 +1,104 @@
-html {
-  min-height: 100%;
-  position: relative;
+/* ================= GLOBAL ================= */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(120deg, #fdfbfb, #ebedee);
 }
+
+/* Main content takes full space */
+.container {
+  flex: 1;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-}
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  padding: 12px 0;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 20px;
+  font-size: 13px;
+  letter-spacing: 2px;
 }
 
-footer {
-  background-color: #f8f9fa;
-  padding: 20px;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin-top: 20px; 
-  padding: 20px;
+.navbar-brand {
+  color: white !important;
+  font-weight: bold;
+  font-size: 20px;
 }
 
+.navbar-nav li a {
+  color: #eee !important;
+  font-weight: 500;
+}
 
+.navbar-nav li a:hover {
+  color: #ffd369 !important;
+  transform: translateY(-2px);
+}
 
+/* ================= FORMS ================= */
 .animated-form {
-  transition: all 0.3s ease-in-out;
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .form-control {
-  transition: border-color 0.3s ease;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .form-control:focus {
   border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
 }
 
-.animated-button {
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* ================= BUTTONS ================= */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: none;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.edit-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #45a049;
 }
 
 .animated-button:hover {
-  background-color: #0056b3;
   transform: scale(1.05);
 }
 
+/* ================= PAGE TEXT ================= */
 .page-title {
   text-align: center;
   font-size: 2.5rem;
@@ -75,6 +113,7 @@ footer {
   margin-bottom: 40px;
 }
 
+/* ================= POSTS ================= */
 .post-container {
   max-width: 800px;
   margin: auto;
@@ -83,17 +122,17 @@ footer {
 }
 
 .post-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   margin-bottom: 30px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 25px;
 }
 
 .post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
 .post-title {
@@ -117,13 +156,52 @@ footer {
   text-decoration: underline;
 }
 
+/* ================= POST PAGE ================= */
+.post-page {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
 
+.post-page h1 {
+  margin-bottom: 15px;
+}
+
+.post-page p {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* ================= BUTTON ROW ================= */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ================= CHAT ================= */
+#chatbox {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+}
+
+#msg {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* ================= FOOTER ================= */
 .footer {
   background: linear-gradient(135deg, #1f1c2c, #928dab);
   padding: 25px 0;
   text-align: center;
   color: white;
-  margin-top: 50px;
+  margin-top: auto;
 }
 
 .footer-content {
@@ -141,12 +219,9 @@ footer {
   margin: 0 12px;
   font-size: 22px;
   color: white;
-  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
   color: #ffd369;
   transform: translateY(-3px);
 }
-
-
