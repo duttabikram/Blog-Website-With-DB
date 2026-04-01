@@ -17,3 +17,14 @@ async function sendMessage(postId) {
   chatbox.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
   chatbox.scrollTop = chatbox.scrollHeight;
 }
+
+
+function toggleChat() {
+  const chat = document.getElementById("chatDropdown");
+
+  if (chat.style.display === "none") {
+    chat.style.display = "block";
+  } else {
+    chat.style.display = "none";
+  }
+}
