@@ -170,7 +170,7 @@ ${req.body.message}
   try {
     console.log(prompt);
     const completion = await openrouter.chat.send({
-    model: "openai/gpt-oss-120b:free",
+    model: "z-ai/glm-5v-turbo",
     messages: [{ role: "user", content: prompt }]
   });
 
