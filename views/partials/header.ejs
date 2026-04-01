@@ -9,25 +9,27 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar custom-navbar">
   <div class="container">
+    
     <div class="navbar-header">
-      <p class="navbar-brand">DAILY BLOG</p>
+      <a class="navbar-brand brand-logo" href="/">DAILY BLOG</a>
     </div>
 
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right nav-links">
       <li><a href="/">HOME</a></li>
-      <li><a href="/about">ABOUT US</a></li>
-      <li><a href="/contact">CONTACT US</a></li>
+      <li><a href="/about">ABOUT</a></li>
+      <li><a href="/contact">CONTACT</a></li>
 
       <% if (!isLoggedIn) { %>
         <li><a href="/login">LOGIN</a></li>
-        <li><a href="/signup">SIGN UP</a></li>
+        <li><a href="/signup" class="signup-btn">SIGN UP</a></li>
       <% } else { %>
-        <li><a href="/compose">COMPOSE</a></li>
+        <li><a href="/compose" class="compose-btn">COMPOSE</a></li>
         <li><a href="/logout">LOGOUT</a></li>
       <% } %>
     </ul>
+
   </div>
 </nav>
 
