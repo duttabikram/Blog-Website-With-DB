@@ -118,3 +118,35 @@ footer {
 }
 
 
+.footer {
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  padding: 25px 0;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.footer-text {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+.social-icons a {
+  margin: 0 12px;
+  font-size: 22px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffd369;
+  transform: translateY(-3px);
+}
+
+
