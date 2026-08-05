@@ -13,7 +13,9 @@ body {
 
 /* Main content takes full space */
 .container {
-  flex: 1;
+  padding: 15px;
+  margin: 0 auto;
+  /* remove flex: 1 if not needed */
 }
 
 /* Smooth transitions */
