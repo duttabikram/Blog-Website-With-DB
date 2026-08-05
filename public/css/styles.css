@@ -12,11 +12,7 @@ body {
 }
 
 /* Main content takes full space */
-.container {
-  padding: 15px;
-  margin: 0 auto;
-  /* remove flex: 1 if not needed */
-}
+.container { flex: 1; }
 
 /* Smooth transitions */
 * {
