@@ -159,7 +159,8 @@ body {
 /* ================= POST PAGE ================= */
 .post-page {
   width: 100%;
-  padding: 20px;
+  min-height: 100vh;
+  padding: 20px 20px 200px;
 }
 
 .post-page h1 {
@@ -167,7 +168,7 @@ body {
 }
 
 .post-page p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #444;
 }
 
