@@ -565,3 +565,62 @@ body {
     width: 100%;
   }
 }
+
+/* ================= MOBILE NAVBAR ================= */
+
+.navbar-toggle {
+  border: none;
+  background: transparent;
+  margin-top: 12px;
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  background: transparent !important;
+}
+
+.navbar-toggle .icon-bar {
+  background: white;
+  height: 2px;
+  width: 24px;
+  margin: 5px 0;
+}
+
+
+/* Mobile */
+
+@media (max-width: 767px) {
+
+  .navbar {
+    margin-bottom: 0;
+  }
+
+  .navbar .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .navbar-brand {
+    font-size: 24px;
+    padding-left: 0;
+  }
+
+  .navbar-collapse {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    box-shadow: none;
+  }
+
+  .navbar-nav {
+    margin: 10px 0;
+  }
+
+  .navbar-nav li {
+    text-align: center;
+  }
+
+  .navbar-nav li a {
+    color: white !important;
+    padding: 12px;
+  }
+
+}
