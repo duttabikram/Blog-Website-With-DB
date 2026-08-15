@@ -10,27 +10,84 @@
 
 <body>
 <nav class="navbar custom-navbar">
+
   <div class="container">
-    
+
     <div class="navbar-header">
-      <a class="navbar-brand brand-logo" href="/">DAILY BLOG</a>
+
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#blogNavbar"
+        aria-expanded="false">
+
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+
+      </button>
+
+      <a class="navbar-brand brand-logo" href="/">
+        DAILY BLOG
+      </a>
+
     </div>
 
-    <ul class="nav navbar-nav navbar-right nav-links">
-      <li><a href="/">HOME</a></li>
-      <li><a href="/about">ABOUT</a></li>
-      <li><a href="/contact">CONTACT</a></li>
 
-      <% if (!isLoggedIn) { %>
-        <li><a href="/login">LOGIN</a></li>
-        <li><a href="/signup" class="signup-btn">SIGN UP</a></li>
-      <% } else { %>
-        <li><a href="/compose" class="compose-btn">COMPOSE</a></li>
-        <li><a href="/logout">LOGOUT</a></li>
-      <% } %>
-    </ul>
+    <div class="collapse navbar-collapse" id="blogNavbar">
+
+      <ul class="nav navbar-nav navbar-right nav-links">
+
+        <li>
+          <a href="/">HOME</a>
+        </li>
+
+        <li>
+          <a href="/about">ABOUT</a>
+        </li>
+
+        <li>
+          <a href="/contact">CONTACT</a>
+        </li>
+
+        <% if (!isLoggedIn) { %>
+
+          <li>
+            <a href="/login">LOGIN</a>
+          </li>
+
+          <li>
+            <a href="/signup" class="signup-btn">
+              SIGN UP
+            </a>
+          </li>
+
+        <% } else { %>
+
+          <li>
+            <a href="/compose" class="compose-btn">
+              COMPOSE
+            </a>
+          </li>
+
+          <li>
+            <a href="/logout">
+              LOGOUT
+            </a>
+          </li>
+
+        <% } %>
+
+      </ul>
+
+    </div>
 
   </div>
+
 </nav>
+
+<div class="container">
 
 <div class="container">
