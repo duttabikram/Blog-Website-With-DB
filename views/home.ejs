@@ -1,19 +1,102 @@
 <%- include("partials/header"); %>
 
-<h1 class="page-title">Home</h1>
-<p class="intro-text"><%= startingContent %></p>
+<!-- ================= HERO ================= -->
 
-<div class="post-container">
-  <% posts.forEach(function(post){ %>
-    <div class="post-card">
-      <h2 class="post-title"><%= post.title %></h2>
-      <p class="post-excerpt">
-        <%= post.content.substring(0, 100) + " ..." %>
-        <a href="/posts/<%= post._id %>" class="read-more">Read More</a>
-      </p>
+<section class="blog-hero">
+
+  <div class="hero-content">
+
+    <span class="hero-badge">
+      ✨ WELCOME TO DAILY BLOG
+    </span>
+
+    <h1>
+      Ideas, Stories &
+      <span>Inspiration.</span>
+    </h1>
+
+    <p>
+      <%= startingContent %>
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BLOG POSTS ================= -->
+
+<section class="posts-section">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="section-label">
+        LATEST STORIES
+      </span>
+
+      <h2>
+        Explore Our Posts
+      </h2>
     </div>
-  <% }) %>
-</div>
-</div>
-</div>
+
+    <span class="post-count">
+      <%= posts.length %> Posts
+    </span>
+
+  </div>
+
+
+  <div class="post-grid">
+
+    <% posts.forEach(function(post){ %>
+
+      <article class="modern-post-card">
+
+        <div class="post-card-top">
+
+          <span class="post-category">
+            📝 BLOG
+          </span>
+
+        </div>
+
+
+        <div class="post-card-content">
+
+          <h2>
+            <%= post.title %>
+          </h2>
+
+          <p>
+            <%= post.content.length > 150
+              ? post.content.substring(0, 150) + "..."
+              : post.content
+            %>
+          </p>
+
+        </div>
+
+
+        <div class="post-card-footer">
+
+          <a
+            href="/posts/<%= post._id %>"
+            class="read-post-btn"
+          >
+            Read Article
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </article>
+
+    <% }) %>
+
+  </div>
+
+</section>
+  </div>
+
 <%- include("partials/footer"); %>
