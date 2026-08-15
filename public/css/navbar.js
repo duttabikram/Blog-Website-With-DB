@@ -1,5 +1,7 @@
 function toggleNavbar() {
+
   const navbar = document.getElementById("blogNavbar");
 
-  navbar.classList.toggle("mobile-open");
+  navbar.classList.toggle("blog-menu-open");
+
 }
