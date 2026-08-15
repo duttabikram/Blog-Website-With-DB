@@ -566,29 +566,29 @@ body {
   }
 }
 
-/* ================= MOBILE NAVBAR ================= */
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
 
 .navbar-toggle {
   display: none;
-  float: right;
-  margin-top: 10px;
-  padding: 9px 10px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
 }
+
+
+/* Hamburger lines */
 
 .navbar-toggle .icon-bar {
   display: block;
-  width: 30px;
+  width: 28px;
   height: 2px;
   margin: 5px 0;
-  background: white;
-  border-radius: 2px;
+  background: #fff;
 }
 
 
-/* ================= MOBILE ================= */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 767px) {
 
@@ -599,67 +599,93 @@ body {
 
   .navbar .container {
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
   }
+
+
+  /* Header */
 
   .navbar-header {
     float: none;
   }
 
+
+  /* Logo */
+
   .navbar-brand {
+    float: left;
+    padding: 17px 0 !important;
+    margin: 0 !important;
     font-size: 24px;
-    padding-left: 0;
+    color: white !important;
   }
 
 
   /* Hamburger */
 
   .navbar-toggle {
+    display: block !important;
+    float: right;
+
+    margin: 10px 0 0 0;
+    padding: 8px 10px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+
+  /* =========================================
+     MENU
+  ========================================= */
+
+  .blog-mobile-menu {
+    display: none;
+    width: 100%;
+    clear: both;
+  }
+
+
+  /* When JS adds mobile-open */
+
+  .blog-mobile-menu.mobile-open {
     display: block;
   }
 
 
-  /* Hide menu initially */
+  /* Remove Bootstrap floating behavior */
 
-  .navbar-collapse {
-    display: none !important;
-    width: 100%;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    box-shadow: none;
-  }
-
-
-  /* Show menu when hamburger is clicked */
-
-  .navbar-collapse.mobile-open {
-    display: block !important;
-  }
-
-
-  /* Navigation items */
-
-  .navbar-nav {
+  .blog-mobile-menu .navbar-nav {
     float: none !important;
-    margin: 10px 0;
+    width: 100%;
+    margin: 0 !important;
   }
 
-  .navbar-nav li {
-    float: none;
+  .blog-mobile-menu .navbar-nav > li {
+    float: none !important;
+    width: 100%;
     text-align: center;
   }
 
-  .navbar-nav li a {
+
+  /* Links */
+
+  .blog-mobile-menu .navbar-nav > li > a {
     display: block;
-    padding: 12px;
+    width: 100%;
+
+    padding: 12px 10px;
+
     color: white !important;
+    background: transparent !important;
+
     font-size: 14px;
     letter-spacing: 2px;
   }
 
-  .navbar-nav li a:hover {
+  .blog-mobile-menu .navbar-nav > li > a:hover {
     color: #ffd369 !important;
-    background: transparent;
   }
 
 }
