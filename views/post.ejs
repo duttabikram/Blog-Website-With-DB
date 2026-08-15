@@ -2,7 +2,7 @@
 
 <div class="post-page">
 
-  <article class="post-card">
+  <article class="single-post-card">
 
 ```
 <!-- Blog Header -->
@@ -10,7 +10,7 @@
 
   <span class="post-badge">📝 Blog Post</span>
 
-  <h1 class="post-title"><%= title %></h1>
+  <h1 class="single-post-title"><%= title %></h1>
 
   <!-- Author -->
   <div class="author-info">
@@ -30,7 +30,7 @@
 
 
 <!-- Blog Content -->
-<div class="post-content">
+<div class="single-post-content">
   <p><%= content %></p>
 </div>
 
@@ -38,14 +38,22 @@
 <!-- Edit / Delete -->
 <div class="post-actions">
 
-  <a href="/posts/<%= postId %>/edit" class="action-btn edit-btn">
+  <a
+    href="/posts/<%= postId %>/edit"
+    class="post-action-btn post-edit-btn">
     ✏️ Edit
   </a>
 
-  <form action="/posts/<%= postId %>/delete" method="POST">
-    <button type="submit" class="action-btn delete-btn">
+  <form
+    action="/posts/<%= postId %>/delete"
+    method="POST">
+
+    <button
+      type="submit"
+      class="post-action-btn post-delete-btn">
       🗑️ Delete
     </button>
+
   </form>
 
 </div>
@@ -65,7 +73,9 @@
 
     <div>
       <h2>Ask AI about this post</h2>
-      <p>Ask questions based only on the content of this blog.</p>
+      <p>
+        Ask questions based only on the content of this blog.
+      </p>
     </div>
 
   </div>
