@@ -580,7 +580,7 @@ body {
 
 .navbar-toggle .icon-bar {
   display: block;
-  width: 24px;
+  width: 30px;
   height: 2px;
   margin: 5px 0;
   background: white;
@@ -613,7 +613,7 @@ body {
   }
 
 
-  /* Show hamburger */
+  /* Hamburger */
 
   .navbar-toggle {
     display: block;
@@ -623,19 +623,21 @@ body {
   /* Hide menu initially */
 
   .navbar-collapse {
-    display: none;
+    display: none !important;
     width: 100%;
     border-top: 1px solid rgba(255,255,255,0.15);
     box-shadow: none;
   }
 
 
-  /* Show menu */
+  /* Show menu when hamburger is clicked */
 
   .navbar-collapse.mobile-open {
-    display: block;
+    display: block !important;
   }
 
+
+  /* Navigation items */
 
   .navbar-nav {
     float: none !important;
