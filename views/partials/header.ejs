@@ -1,91 +1,127 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Daily Blog</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  >
+
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-<nav class="navbar custom-navbar">
+
+  <!-- ================= NAVBAR ================= -->
+
+  <nav class="navbar custom-navbar">
+
+    <div class="container">
+
+      <div class="navbar-header">
+
+        <!-- Mobile Menu Button -->
+        <button
+          type="button"
+          class="navbar-toggle"
+          onclick="toggleNavbar()"
+          aria-label="Toggle navigation"
+        >
+
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+
+        </button>
+
+
+        <!-- Logo -->
+        <a
+          class="navbar-brand brand-logo"
+          href="/"
+        >
+          DAILY BLOG
+        </a>
+
+      </div>
+
+
+      <!-- Navigation -->
+      <div
+        class="navbar-collapse"
+        id="blogNavbar"
+      >
+
+        <ul class="nav navbar-nav navbar-right nav-links">
+
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          <li>
+            <a href="/about">ABOUT</a>
+          </li>
+
+          <li>
+            <a href="/contact">CONTACT</a>
+          </li>
+
+
+          <% if (!isLoggedIn) { %>
+
+            <li>
+              <a href="/login">LOGIN</a>
+            </li>
+
+            <li>
+              <a
+                href="/signup"
+                class="signup-btn"
+              >
+                SIGN UP
+              </a>
+            </li>
+
+
+          <% } else { %>
+
+            <li>
+              <a
+                href="/compose"
+                class="compose-btn"
+              >
+                COMPOSE
+              </a>
+            </li>
+
+            <li>
+              <a href="/logout">
+                LOGOUT
+              </a>
+            </li>
+
+          <% } %>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- ================= PAGE CONTENT ================= -->
 
   <div class="container">
-
-    <div class="navbar-header">
-
-      <button
-        type="button"
-        class="navbar-toggle collapsed"
-        data-toggle="collapse"
-        data-target="#blogNavbar"
-        aria-expanded="false">
-
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-
-      </button>
-
-      <a class="navbar-brand brand-logo" href="/">
-        DAILY BLOG
-      </a>
-
-    </div>
-
-
-    <div class="collapse navbar-collapse" id="blogNavbar">
-
-      <ul class="nav navbar-nav navbar-right nav-links">
-
-        <li>
-          <a href="/">HOME</a>
-        </li>
-
-        <li>
-          <a href="/about">ABOUT</a>
-        </li>
-
-        <li>
-          <a href="/contact">CONTACT</a>
-        </li>
-
-        <% if (!isLoggedIn) { %>
-
-          <li>
-            <a href="/login">LOGIN</a>
-          </li>
-
-          <li>
-            <a href="/signup" class="signup-btn">
-              SIGN UP
-            </a>
-          </li>
-
-        <% } else { %>
-
-          <li>
-            <a href="/compose" class="compose-btn">
-              COMPOSE
-            </a>
-          </li>
-
-          <li>
-            <a href="/logout">
-              LOGOUT
-            </a>
-          </li>
-
-        <% } %>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</nav>
-
-<div class="container">
