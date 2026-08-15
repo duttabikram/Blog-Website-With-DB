@@ -1,64 +1,115 @@
-
 <%- include("partials/header"); -%>
 
-<div class="post-page">    
-    <h1><%=title%></h1>
-    <p><%=content%></p>
-   <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
-      
-      <a href="/posts/<%= postId %>/edit" class="btn edit-btn">
-        Edit
-      </a>
+<div class="post-page">
 
-      <form action="/posts/<%= postId %>/delete" method="POST" style="margin: 0;">
-        <button type="submit" class="btn btn-primary animated-button">
-          Delete
-        </button>
-      </form>
+  <article class="post-card">
 
+```
+<!-- Blog Header -->
+<div class="post-header">
+
+  <span class="post-badge">📝 Blog Post</span>
+
+  <h1 class="post-title"><%= title %></h1>
+
+  <!-- Author -->
+  <div class="author-info">
+
+    <div class="author-avatar">
+      <%= email.charAt(0).toUpperCase() %>
     </div>
 
-<hr>
-
-<div class="chat-container" style="margin-top:20px;">
-  
-  <!-- Toggle Button -->
-  <button onclick="toggleChat()" 
-    class="btn btn-primary animated-button">
-    🤖 Chat with AI
-  </button>
-
-  <!-- Dropdown Chatbox -->
-  <div id="chatDropdown" style="
-        display: none;
-        margin-top: 10px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 8px;
-        background: #f9f9f9;
-      ">
-
-    <div id="chatbox" style="
-          max-height: 300px;
-          overflow-y: auto;
-          margin-bottom: 10px;
-        "></div>
-
-    <div style="display: flex; gap: 8px;">
-      <input type="text" id="msg" placeholder="Ask from this post..." 
-        class="form-control" style="flex: 1;" />
-
-      <button onclick="sendMessage('<%= postId %>')" 
-        class="btn btn-primary">
-        Send
-      </button>
+    <div class="author-details">
+      <span class="author-label">Written by</span>
+      <span class="author-email"><%= email %></span>
     </div>
 
   </div>
+
+</div>
+
+
+<!-- Blog Content -->
+<div class="post-content">
+  <p><%= content %></p>
+</div>
+
+
+<!-- Edit / Delete -->
+<div class="post-actions">
+
+  <a href="/posts/<%= postId %>/edit" class="action-btn edit-btn">
+    ✏️ Edit
+  </a>
+
+  <form action="/posts/<%= postId %>/delete" method="POST">
+    <button type="submit" class="action-btn delete-btn">
+      🗑️ Delete
+    </button>
+  </form>
+
+</div>
+
+
+<hr class="post-divider">
+
+
+<!-- AI Chat -->
+<div class="ai-section">
+
+  <div class="ai-header">
+
+    <div class="ai-icon">
+      🤖
+    </div>
+
+    <div>
+      <h2>Ask AI about this post</h2>
+      <p>Ask questions based only on the content of this blog.</p>
+    </div>
+
+  </div>
+
+
+  <!-- Toggle Button -->
+  <button
+    onclick="toggleChat()"
+    class="ai-toggle-btn">
+    💬 Chat with AI
+  </button>
+
+
+  <!-- Chat Dropdown -->
+  <div id="chatDropdown" class="chat-dropdown">
+
+    <div id="chatbox" class="chatbox"></div>
+
+    <div class="chat-input-area">
+
+      <input
+        type="text"
+        id="msg"
+        placeholder="Ask something about this post..."
+        class="chat-input"
+      />
+
+      <button
+        onclick="sendMessage('<%= postId %>')"
+        class="send-btn">
+        Send ➤
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </article>
+
 </div>
 
 <script src="/css/chat.js"></script>
 
-</div>
-</div>
 <%- include("partials/footer"); -%>
