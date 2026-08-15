@@ -866,3 +866,185 @@ body {
   }
 
 }
+
+/* ================= 403 ERROR PAGE ================= */
+
+.error-page {
+  min-height: 65vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+}
+
+.error-card {
+  width: 100%;
+  max-width: 550px;
+
+  background: white;
+
+  padding: 50px 40px;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Lock icon */
+
+.error-icon {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff3f3;
+
+  font-size: 35px;
+}
+
+
+/* 403 */
+
+.error-code {
+  font-size: 70px;
+
+  font-weight: 800;
+
+  color: #007bff;
+
+  line-height: 1;
+
+  margin-bottom: 10px;
+}
+
+
+/* Heading */
+
+.error-card h1 {
+  font-size: 30px;
+
+  color: #222;
+
+  margin: 10px 0;
+}
+
+
+/* Description */
+
+.error-card p {
+  color: #666;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+}
+
+.error-message {
+  background: #f7f7f7;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  font-size: 14px !important;
+
+  color: #555 !important;
+}
+
+
+/* Buttons */
+
+.error-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.error-home-btn,
+.error-back-btn {
+  padding: 11px 20px;
+
+  border-radius: 9px;
+
+  text-decoration: none !important;
+
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.error-home-btn {
+  background: #007bff;
+
+  color: white !important;
+}
+
+.error-home-btn:hover {
+  background: #0056b3;
+
+  transform: translateY(-2px);
+}
+
+.error-back-btn {
+  background: #eee;
+
+  color: #333 !important;
+}
+
+.error-back-btn:hover {
+  background: #ddd;
+
+  transform: translateY(-2px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .error-page {
+    min-height: 60vh;
+
+    padding: 25px 15px;
+  }
+
+  .error-card {
+    padding: 40px 20px;
+  }
+
+  .error-code {
+    font-size: 60px;
+  }
+
+  .error-card h1 {
+    font-size: 26px;
+  }
+
+  .error-actions {
+    flex-direction: column;
+  }
+
+  .error-home-btn,
+  .error-back-btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+}
