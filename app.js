@@ -203,7 +203,10 @@ app.get("/posts/:postId/edit", authMiddleware, async function(req, res) {
   }
 
   if (post.author.toString() !== req.user.userId) {
-    return res.status(403).send("Not authorized to edit this post");
+     return res.status(403).render("403", {
+    title: "Access Denied",
+    message: "You are not authorized to edit this post."
+  });
   }
 
   res.render("edit", {
@@ -223,7 +226,10 @@ app.post("/posts/:postId/edit", authMiddleware, async function(req, res) {
   }
 
   if (post.author.toString() !== req.user.userId) {
-    return res.status(403).send("Not authorized to update this post");
+     return res.status(403).render("403", {
+    title: "Access Denied",
+    message: "You are not authorized to update this post."
+  });
   }
 
   post.title = req.body.postTitle;
@@ -239,7 +245,10 @@ app.post("/posts/:postId/delete", authMiddleware, async (req, res) => {
   const post = await Post.findById(req.params.postId);
 
   if (post.author.toString() !== req.user.userId) {
-    return res.status(403).send("Not authorized");
+    return res.status(403).render("403", {
+    title: "Access Denied",
+    message: "You are not authorized to delete this post."
+  });
   }
 
   await Post.findByIdAndDelete(req.params.postId);
