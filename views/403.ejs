@@ -1,0 +1,41 @@
+<%- include("partials/header"); -%>
+
+<div class="error-page">
+
+  <div class="error-card">
+
+    <div class="error-icon">
+      🔒
+    </div>
+
+    <div class="error-code">
+      403
+    </div>
+
+    <h1>Access Denied</h1>
+
+    <p>
+      You don't have permission to perform this action.
+    </p>
+
+    <p class="error-message">
+      <%= message %>
+    </p>
+
+    <div class="error-actions">
+
+      <a href="/" class="error-home-btn">
+        🏠 Go to Home
+      </a>
+
+      <a href="javascript:history.back()" class="error-back-btn">
+        ← Go Back
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<%- include("partials/footer"); -%>
