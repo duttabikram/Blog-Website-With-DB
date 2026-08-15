@@ -121,16 +121,22 @@ app.post("/compose", authMiddleware, function(req, res){
   });
 });
 
-app.get("/posts/:postId", function(req, res){
+app.get("/posts/:postId", async function(req, res) {
 
-const requestedPostId = req.params.postId;
+  const requestedPostId = req.params.postId;
 
-  Post.findOne({_id: requestedPostId}, function(err, post){
-    res.render("post", {
-      postId: post._id,
-      title: post.title,
-      content: post.content
-    });
+  const post = await Post.findById(requestedPostId)
+    .populate("author", "email");
+
+  if (!post) {
+    return res.redirect("/");
+  }
+
+  res.render("post", {
+    postId: post._id,
+    title: post.title,
+    content: post.content,
+    email: post.author.email
   });
 
 });
