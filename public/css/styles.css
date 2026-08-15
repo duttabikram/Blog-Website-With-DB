@@ -19,33 +19,6 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-/* ================= NAVBAR ================= */
-.navbar {
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
-  padding: 12px 0;
-  border: none;
-  border-radius: 0;
-  margin-bottom: 20px;
-  font-size: 13px;
-  letter-spacing: 2px;
-}
-
-.navbar-brand {
-  color: white !important;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.navbar-nav li a {
-  color: #eee !important;
-  font-weight: 500;
-}
-
-.navbar-nav li a:hover {
-  color: #ffd369 !important;
-  transform: translateY(-2px);
-}
-
 /* ================= FORMS ================= */
 .animated-form {
   max-width: 600px;
@@ -567,22 +540,62 @@ body {
 }
 
 /* =========================================
-   MOBILE NAVIGATION
+   BLOG NAVBAR
 ========================================= */
 
-.navbar-toggle {
-  display: none;
+.blog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blog-logo {
+  color: white !important;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-decoration: none !important;
 }
 
 
-/* Hamburger lines */
+/* Hamburger */
 
-.navbar-toggle .icon-bar {
+.blog-menu-button {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.blog-menu-button span {
   display: block;
-  width: 28px;
+  width: 30px;
   height: 2px;
-  margin: 5px 0;
-  background: #fff;
+  background: white;
+  margin: 6px 0;
+}
+
+
+/* Desktop menu */
+
+.blog-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 35px;
+}
+
+.blog-menu a {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.blog-menu a:hover {
+  color: #ffd369 !important;
 }
 
 
@@ -592,12 +605,12 @@ body {
 
 @media (max-width: 767px) {
 
-  .navbar {
-    min-height: 58px;
+  .custom-navbar {
     margin-bottom: 0;
+    min-height: 58px;
   }
 
-  .navbar .container {
+  .custom-navbar .container {
     width: 100%;
     padding: 0 15px;
   }
@@ -605,87 +618,72 @@ body {
 
   /* Header */
 
-  .navbar-header {
-    float: none;
+  .blog-header {
+    width: 100%;
+    min-height: 58px;
   }
 
 
   /* Logo */
 
-  .navbar-brand {
-    float: left;
-    padding: 17px 0 !important;
-    margin: 0 !important;
+  .blog-logo {
     font-size: 24px;
-    color: white !important;
   }
 
 
   /* Hamburger */
 
-  .navbar-toggle {
-    display: block !important;
-    float: right;
-
-    margin: 10px 0 0 0;
-    padding: 8px 10px;
-
-    background: transparent;
-    border: none;
-    outline: none;
-  }
-
-
-  /* =========================================
-     MENU
-  ========================================= */
-
-  .blog-mobile-menu {
-    display: none;
-    width: 100%;
-    clear: both;
-  }
-
-
-  /* When JS adds mobile-open */
-
-  .blog-mobile-menu.mobile-open {
+  .blog-menu-button {
     display: block;
   }
 
 
-  /* Remove Bootstrap floating behavior */
+  /* FORCE MENU HIDDEN */
 
-  .blog-mobile-menu .navbar-nav {
-    float: none !important;
+  .blog-menu {
+    display: none !important;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
     width: 100%;
-    margin: 0 !important;
+
+    background: linear-gradient(
+      135deg,
+      #1f1c2c,
+      #928dab
+    );
+
+    padding: 10px 0;
+
+    z-index: 99999;
   }
 
-  .blog-mobile-menu .navbar-nav > li {
-    float: none !important;
-    width: 100%;
-    text-align: center;
+
+  /* OPEN MENU */
+
+  .blog-menu.blog-menu-open {
+    display: block !important;
   }
 
 
   /* Links */
 
-  .blog-mobile-menu .navbar-nav > li > a {
-    display: block;
+  .blog-menu a {
+    display: block !important;
+
     width: 100%;
 
-    padding: 12px 10px;
+    text-align: center;
+
+    padding: 14px 10px;
 
     color: white !important;
-    background: transparent !important;
 
     font-size: 14px;
-    letter-spacing: 2px;
-  }
 
-  .blog-mobile-menu .navbar-nav > li > a:hover {
-    color: #ffd369 !important;
+    letter-spacing: 2px;
   }
 
 }
