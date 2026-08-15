@@ -687,3 +687,180 @@ body {
   }
 
 }
+
+/* =========================================
+   CUSTOM NAVBAR
+========================================= */
+
+.custom-navbar {
+  width: 100%;
+  min-height: 58px;
+
+  background: linear-gradient(
+    135deg,
+    #1f1c2c,
+    #928dab
+  ) !important;
+
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  position: relative;
+  z-index: 9999;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 58px;
+
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* LOGO */
+
+.blog-logo {
+  color: #ffffff !important;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  text-decoration: none !important;
+}
+
+
+/* DESKTOP MENU */
+
+.blog-menu {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.blog-menu a {
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.blog-menu a:hover {
+  color: #ffd369 !important;
+}
+
+
+/* HAMBURGER */
+
+.blog-menu-button {
+  display: none;
+
+  background: transparent !important;
+  border: none !important;
+
+  padding: 5px;
+  cursor: pointer;
+}
+
+.blog-menu-button span {
+  display: block;
+
+  width: 30px;
+  height: 2px;
+
+  margin: 6px 0;
+
+  background: #ffffff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .custom-navbar {
+    min-height: 58px;
+
+    background: linear-gradient(
+      135deg,
+      #1f1c2c,
+      #928dab
+    ) !important;
+  }
+
+  .navbar-inner {
+    min-height: 58px;
+
+    padding: 0 15px;
+
+    position: relative;
+  }
+
+  .blog-logo {
+    font-size: 24px;
+  }
+
+
+  /* Show hamburger */
+
+  .blog-menu-button {
+    display: block;
+  }
+
+
+  /* Hide menu */
+
+  .blog-menu {
+    display: none;
+
+    position: absolute;
+
+    top: 58px;
+    left: 0;
+
+    width: 100%;
+
+    background: linear-gradient(
+      135deg,
+      #1f1c2c,
+      #928dab
+    );
+
+    padding: 10px 0;
+
+    flex-direction: column;
+    gap: 0;
+
+    z-index: 10000;
+  }
+
+
+  /* Open menu */
+
+  .blog-menu.blog-menu-open {
+    display: flex;
+  }
+
+
+  .blog-menu a {
+    width: 100%;
+
+    padding: 14px 0;
+
+    text-align: center;
+
+    color: white !important;
+  }
+
+}
